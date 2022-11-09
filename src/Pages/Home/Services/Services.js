@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Service from '../Service/Service';
 
 
@@ -7,7 +8,7 @@ const Services = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/home')
+        fetch('https://assignment-server-eight.vercel.app/home')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
@@ -24,7 +25,7 @@ const Services = () => {
                 }
 
                 <div className=''>
-                    <button className="btn btn-secondary">See All</button>
+                    <button className="btn btn-secondary"><Link to='/services'>See all</Link></button>
                 </div>
             </div>
         </div>
