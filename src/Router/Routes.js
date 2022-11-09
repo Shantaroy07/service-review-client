@@ -4,6 +4,7 @@ import AllServices from '../Pages/Allservices/AllServices';
 import Blog from '../Pages/Blog/Blog';
 import Home from '../Pages/Home/Home';
 import Login from '../Pages/Login/Login';
+import ViewDetails from '../Pages/ViewDetails/ViewDetails';
 
 const router = createBrowserRouter([
     {
@@ -23,6 +24,13 @@ const router = createBrowserRouter([
                 element: <AllServices></AllServices>,
                 loader: () => fetch('https://assignment-server-eight.vercel.app/services')
             },
+
+            {
+                path: '/details/:id',
+                element: <ViewDetails></ViewDetails>,
+                loader: ({ params }) => fetch(`https://assignment-server-shantaroy07.vercel.app/services/${params.id}`)
+            },
+
             {
                 path: '/blog',
                 element: <Blog></Blog>
