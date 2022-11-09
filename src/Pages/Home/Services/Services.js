@@ -24,9 +24,9 @@ const Services = () => {
                     ></Service>)
                 }
 
-                <div className=''>
-                    <button className="btn btn-secondary"><Link to='/services'>See all</Link></button>
-                </div>
+            </div>
+            <div className='flex justify-center my-4'>
+                <button className="btn btn-secondary"><Link to='/services'>See all</Link></button>
             </div>
         </div>
     );
