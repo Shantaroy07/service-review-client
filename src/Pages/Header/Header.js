@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Shared/AuthProvider/AuthProvider';
 
 const Header = () => {
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then()
+            .catch();
+    }
     return (
         <div className=''>
             <div className="navbar bg-secondary rounded-md">
@@ -10,11 +18,25 @@ const Header = () => {
                 </div>
                 <div className="flex-none">
                     <ul className="menu menu-horizontal p-0">
-                        <li><Link to='/'>Home</Link></li>
-                        <li><Link to='/login'>Login</Link></li>
-                        <li><Link to='/logout'>SignOut</Link></li>
-                        <li><Link to='/services'>Services</Link></li>
-                        <li><Link to='/blog'>Blog</Link></li>
+                        <li className='font-semibold'><Link to='/'>Home</Link></li>
+
+                        {
+                            user?.email ?
+                                <>
+                                    <li className='font-semibold'><Link to='/orders'>My Reviews</Link></li>
+                                    <li className='font-semibold'><Link to='/orders'>Add Service</Link></li>
+                                    <li className='font-semibold'>
+                                        <button onClick={handleLogOut} className='btn-ghost'>Sign Out</button>
+                                    </li>
+                                </>
+                                :
+                                <li className='font-semibold'><Link to='/login'>Login</Link></li>
+                        }
+
+
+
+
+                        <li className='font-semibold'><Link to='/blog'>Blog</Link></li>
                     </ul>
                 </div>
             </div>
