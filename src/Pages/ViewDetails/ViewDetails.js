@@ -28,7 +28,7 @@ const ViewDetails = () => {
                 <h1 className='text-lg font-bold text-center'>Review Section</h1>
                 {
                     user?.email ?
-                        <Link to='/addReview' className="btn btn-active btn-accent">Add Review</Link> :
+                        <Link to={`/addReview/${details._id}`} className="btn btn-active btn-accent">Add Review</Link> :
                         <p className='text-center text-base font-medium text-blue-500'>Please <Link to='/login' className='text-orange-700'>Log in</Link> first to Add Review.</p>
                 }
 

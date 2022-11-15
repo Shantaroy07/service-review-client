@@ -42,8 +42,11 @@ const router = createBrowserRouter([
                 element: <Blog></Blog>
             },
             {
-                path: '/addReview',
-                element: <Review></Review>
+                path: '/addReview/:id',
+                element: <Review></Review>,
+                loader: ({ params }) => fetch(`https://assignment-server-shantaroy07.vercel.app/services/${params.id}`)
+
+
             },
 
         ]
