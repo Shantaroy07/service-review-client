@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../Shared/AuthProvider/AuthProvider';
+import Reviews from '../Review/Reviews';
 
 
 
@@ -26,6 +27,7 @@ const ViewDetails = () => {
             </div>
             <div>
                 <h1 className='text-lg font-bold text-center'>Review Section</h1>
+                <Reviews id={details._id}></Reviews>
                 {
                     user?.email ?
                         <Link to={`/addReview/${details._id}`} className="btn btn-active btn-accent">Add Review</Link> :

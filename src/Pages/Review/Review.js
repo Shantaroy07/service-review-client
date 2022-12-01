@@ -9,9 +9,9 @@ const Review = () => {
     const handlePlaceReview = event => {
         event.preventDefault();
         const form = event.target;
-        const name = user?.name || 'no name'
+        const user_name = form.name.value;
         const email = user?.email || 'unregistered';
-        const img = user?.url;
+        const img = user?.photoURL;
         const review = form.review.value;
         const ratings = form.ratings.value;
 
@@ -21,7 +21,8 @@ const Review = () => {
             ratings,
             img,
             name,
-            email
+            email,
+            user_name
         }
 
         fetch('https://assignment-server-eight.vercel.app/reviews', {
@@ -49,6 +50,12 @@ const Review = () => {
         <div>
             <h1 className='text-lg font-medium'>Review For {name}</h1>
             <form onSubmit={handlePlaceReview} className='ml-3 my-5'>
+                <div className="form-control w-full max-w-xs">
+                    <label className="label">
+                        <span className="label-text"> Your name</span>
+                    </label>
+                    <input name='name' type="text" placeholder="Name" className="input input-bordered w-full " />
+                </div>
                 <div className="form-control w-full max-w-xs">
                     <label className="label">
                         <span className="label-text">What is your review?</span>
